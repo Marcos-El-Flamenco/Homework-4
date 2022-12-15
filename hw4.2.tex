@@ -1,0 +1,45 @@
+%Colle du Mercredi 28 a Janson, edp
+\documentclass{scrartcl}
+
+\usepackage{cmap}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{ marvosym }
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+\title{Homework 4 Exercice 2}
+\author{Oscar Garnier}
+\date{\today}
+
+
+\begin{document}
+\newcommand{\E}[1]{\section*{Exo #1}}
+\newcommand{\CR}[2]{\section*{#1 // note : #2}}
+\newcommand{\Q}[1]{\section*{Exercise #1}}
+\newcommand{\SQ}[1]{\subsection*{Question #1}}
+\maketitle
+
+\SQ{1}
+Set \( i \) as defined. We know there exists a clique of size \( M = k - i + 1 \) colored with colors \( i, i+ 1, ..., k \), let us call this clique \( K = \{ u_i, ..., u_k \} \) . Now suppose \( i \neq 1 \), which means there exists another color \( c = i - 1\) not in the clique. \\
+
+We know that \( \forall u \in K\) is connected to some vertex colored \( c \), because we applied the greedy algorithm, if \( u\) was not connected to a vertex colored \( c \leq j \), it would have been colored \( c \) itself. 
+
+We also know there is no such c-colored vertex that is connected to all \(u \in K \), by minimality of \( i \). \\
+
+
+Let \( p = max \{ |K \cap N(v)| for \ v \in V \ colored \ c \} \). Let \( a \in V \) be such a max, (so \( a \) is colored c and has exactly \( p \) neighbors in \( K \) ). \\
+We know \( p < M \), so \( \exists u \in K \) s.t. \( (a,u) \not \in E \), and we know that \( \exists b \in V \) colored c s.t. \( (b,u) \in E\). \( b\) is not connected to every vertex in \( N(a) \) by maximality of \( p \), \( \exists v \in N(a) \) s.t. \( (v,b) \not \in E \). \\
+When reasoning on the subgraph induced by \( F = \{a,b,u,v\} \), we have: \( (a,v) \in E, (v,u) \in E \), because they are in a clique, \( (u,b) \in E \). Aditionally, \( (a,u) \not \in E \) and \( (v,b) \not \in E \). This means the graph induced by \( F \) is \( P_4 \), which is absurd.\\
+This means \( i = 1 \)
+
+ 
+\SQ{2}
+Let \( G \) be a \( \emph{cograph} \). Choose any ordering of the vertices, and color it greedily. Suppose you then get \( k \) colors. Since we have found such a coloring, we know \( \Xi(G) \leq k \). According to question 1, there exists a click of cardnality \( k \), with all \( k \) colors, which means \( \Xi(G) \geq k \). Hence, \( \Xi(G) = k \) and the coloring was optimal.
+\end{document}
+
+
+
+
